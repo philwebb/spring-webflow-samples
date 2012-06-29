@@ -13,6 +13,7 @@
 		<webflow:flow-execution-listeners>
 			<webflow:listener ref="facesContextListener"/>
 			<webflow:listener ref="securityFlowExecutionListener" />
+			<webflow:listener ref="flashCopyListener"/>
 		</webflow:flow-execution-listeners>
 	</webflow:flow-executor>
 	

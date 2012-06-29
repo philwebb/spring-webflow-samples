@@ -15,6 +15,15 @@
 		<transition on="cancelBooking">
 			<evaluate expression="bookingService.cancelBooking(bookings.selectedRow)" />
 		</transition>
+		<transition on="test1" to="enterSearchCriteria">
+			<set name="flashScope.status" value="'test1'"/>
+		</transition>
+		<transition on="test2" to="finishAndRedirect">
+			<set name="flashScope.status" value="'test2'"/>
+		</transition>
+		<transition on="test3" to="viewRedirect">
+			<set name="flashScope.status" value="'test3'"/>
+		</transition>
 	</view-state>
 	
 	<view-state id="reviewHotels">
@@ -34,10 +43,23 @@
 
 	<subflow-state id="bookHotel" subflow="booking">
 		<input name="hotelId" value="hotel.id" />
-		<transition on="bookingConfirmed" to="finish" />
-		<transition on="bookingCancelled" to="enterSearchCriteria" />
+		<transition on="bookingConfirmed" to="finish">
+			<set name="flashScope.status" value="'All good'"/>
+		</transition>
+		<transition on="bookingCancelled" to="enterSearchCriteria">
+			
+		</transition>
 	</subflow-state>
 			
 	<end-state id="finish" />
+	
+	<end-state id="finishAndRedirect" view="externalRedirect:outcome">
+		<on-entry>
+			<set name="flashScope.whatever" value="'Yo'"/>
+		</on-entry>
+	</end-state>
+	
+	<view-state id="viewRedirect" view="externalRedirect:outcome"/>
+		
 	
 </flow>

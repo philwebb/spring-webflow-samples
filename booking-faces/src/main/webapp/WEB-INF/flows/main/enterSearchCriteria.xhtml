@@ -17,8 +17,15 @@
 
 <ui:define name="content">
 
+
 	<p:panel header="Search Hotels" toggleable="true" toggleSpeed="100">
 		<h:form>
+			
+			<h:outputText value="Current flashscop statis is #{flashScope.status}" />
+			<p:commandButton id="test1" value="test1" action="test1"/>
+			<p:commandButton id="test2" value="test2" action="test2"/>
+			<p:commandButton id="test3" value="test3" action="test3"/>
+			
 			<p:messages globalOnly="true" />
 			<h:panelGrid columns="2">
 				<h:outputLabel for="searchString">Search String: </h:outputLabel>
